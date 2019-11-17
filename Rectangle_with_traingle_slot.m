@@ -39,6 +39,8 @@ t2(1,2)=input("Enter the y coordinate of point2:");
 t3(1,1)=input("Enter the x coordinate of point3:");
 t3(1,2)=input("Enter the y coordinate of point3:");
 
+
+
 flag=0;
 //checking if input coordinate are valid
 
@@ -49,24 +51,35 @@ flag=0;
 
     L=max([d12,d23,d34,d14]);
     B=min([d12,d23,d34,d14]);
-    
+    rarea=l*b;
+
+
     if(D==l and B==b)
         //finding the max x coordinate of rectangle
+
         p=abs(c2(1,1));
         r=abs(c3(1,1));
-        mxr=max([p,r]);
+        mrx=max([p,r]);
 
         //finding the max y coordinate of rectangle
         q=abs(c1(1,2));
         s=abs(c2(1,2));
-        myr=max([q,s]);
+        mry=max([q,s]);
         
         //finding max x coordinate of triangle            
         u=abs(t1(1,1));
         v=abs(t2(1,1));
         w=abs(t3(1,1));
-
         mtx=max([u,v,w]);
+        
+        //finding max y coordinate of triangle
+        u=abs(t1(1,2));
+        v=abs(t2(1,2));
+        w=abs(t3(1,2));
+        mty=max([u,v,w]);
+
+        if(mrx>mtx && mry>mty)
+            flag+=1;        
 
 
 if(flag==1)
