@@ -25,7 +25,7 @@ c2
 c3
 c4
 
-disp("Checking if inout is valid")
+disp("Checking if input is valid")
 %to check distance
 
 d12=sqrt((c1(1)-c2(1))^2 + (c1(2)-c2(2))^2);
@@ -48,14 +48,6 @@ if(d41~=b || d23~=b)
 else
     disp("Valid input")
 end
-
-%Calculation
-
-m12= (c1(:) + c2(:)).'/2;
-
-m34= (c3(:) + c4(:)).'/2;
-
-Centroid= (m34(:) + m12(:)).'/2
 
 
 
@@ -109,11 +101,55 @@ if(dr41~=b2 || dr23~=b2)
 else
     disp("Valid input")
 end
+flag=0;
 
+% finding the max x coordinate of rectangle
+
+        p=abs(c2(1,1));
+        r=abs(c3(1,1));
+        maxx=max([p,r]);
+% finding the max y coordinate of rectangle
+        q=abs(c1(1,2));
+        s=abs(c2(1,2));
+        maxy=max([q,s]);
+
+% finding the max x coordinate of rectangle slot
+
+        pr=abs(cr2(1,1));
+        rr=abs(cr3(1,1));
+        maxrx=max([pr,rr]);       
+
+% finding the max y coordinate of rectangle slot
+        qr=abs(c1(1,2));
+        sr=abs(c2(1,2));
+        maxry=max([qr,sr]);
+
+        if(maxx>maxrx && maxy>maxry)
+            flag=1;  
+        else  
+            disp "invalid"
+        end    
+        
 %Calculation of centroid of the rectangular slot
 
+if(flag==1)
 mr12= (cr1(:) + cr2(:)).'/2;
 
 mr34= (cr3(:) + cr4(:)).'/2;
 
 Centroid= (mr34(:) + mr12(:)).'/2
+
+%Calculation
+
+m12= (c1(:) + c2(:)).'/2;
+
+m34= (c3(:) + c4(:)).'/2;
+
+Centroidr= (m34(:) + m12(:)).'/2
+
+else
+    disp "invalid"
+    
+end    
+    
+
