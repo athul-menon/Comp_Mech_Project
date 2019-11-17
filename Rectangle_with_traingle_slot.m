@@ -55,7 +55,7 @@ flag=0;
         p=abs(c2(1,1));
         r=abs(c3(1,1));
         mxr=max([p,r]);
-0
+
         //finding the max y coordinate of rectangle
         q=abs(c1(1,2));
         s=abs(c2(1,2));
