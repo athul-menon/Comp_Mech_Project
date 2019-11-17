@@ -1,6 +1,6 @@
 l=input("Enter l: ");
 b=input("Enter b: ");
-r=input("Enter the adius of the hole:");
+r=input("Enter the radius of the hole:");
 x=l+b;
 areaRect=l*b;
 areaCir= (pi*((r)^2))
