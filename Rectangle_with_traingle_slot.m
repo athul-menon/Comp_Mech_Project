@@ -1,9 +1,6 @@
 l=input("Enter l of rectangle : ");
 b=input("Enter b of rectangle : ");
-
-base = input("enter base of triangle : ");
-height= input("enter height of triangle : ");
-
+Rarea=l*b;
 
 x=l+b;
 
@@ -29,6 +26,7 @@ c3(1,2)=input("Enter y coordinate for point3:");
 c4(1,1)=input("Enter x coordinate for point4:");
 c4(1,2)=input("Enter y coordinate for point4:");
 
+
 disp("INPUT COORDINATES FOR TRAINGLE SLOT");
 t1(1,1)=input("Enter the x coordinate of point1:");
 t1(1,2)=input("Enter the y coordinate of point1:");
@@ -39,24 +37,28 @@ t2(1,2)=input("Enter the y coordinate of point2:");
 t3(1,1)=input("Enter the x coordinate of point3:");
 t3(1,2)=input("Enter the y coordinate of point3:");
 
-
-
-flag=0;
-//checking if input coordinate are valid
-
-    d12=sqrt((c1(1)-c2(1))^2 + (c1(2)-c2(2))^2);
-    d23=sqrt((c3(1)-c2(1))^2 + (c3(2)-c2(2))^2);
-    d34=sqrt((c3(1)-c4(1))^2 + (c3(2)-c4(2))^2);
-    d14=sqrt((c3(1)-c4(1))^2 + (c1(2)-c4(2))^2);
-
-    L=max([d12,d23,d34,d14]);
-    B=min([d12,d23,d34,d14]);
-    rarea=l*b;
-
-
-    if(D==l and B==b)
+ 
+ s = (t1+t2+t3)/2;
+ Tarea = sqrt(s.*(s-t1).*(s-t2).*(s-t3));
+ 
+ d12=sqrt((c1(1)-c2(1))^2 + (c1(2)-c2(2))^2);
+ d23=sqrt((c3(1)-c2(1))^2 + (c3(2)-c2(2))^2);
+ d34=sqrt((c3(1)-c4(1))^2 + (c3(2)-c4(2))^2);
+ d14=sqrt((c1(1)-c4(1))^2 + (c1(2)-c4(2))^2);
+ 
+ a = d12+d23;
+ b = d34+d14 ;
+ flag =0;
+ 
+ disp("Checking if input is valid")
+    if(a==x && b==x)
+         flg=1;
+    else
+        disp("Invalid");
+        flg=2;
+    end
+    if(flg==1)
         //finding the max x coordinate of rectangle
-
         p=abs(c2(1,1));
         r=abs(c3(1,1));
         mrx=max([p,r]);
@@ -97,4 +99,5 @@ if(flag==1)
     ct = intersect(v1,v2);
      
     //centroid of figure
+    centroid= ((cr*Rarea-ct*Tarea)/(Rarea-Tarea));
     
