@@ -50,7 +50,7 @@ t3(1,2)=input("Enter the y coordinate of point3:");
  b = d34+d14 ;
  flag =0;
  
- disp("Checking if input is valid")
+ disp("Checking if input is valid....")
     if(a==x && b==x)
          flg=1;
     else
@@ -58,46 +58,50 @@ t3(1,2)=input("Enter the y coordinate of point3:");
         flg=2;
     end
     if(flg==1)
-        //finding the max x coordinate of rectangle
+        %%finding the max x coordinate of rectangle
         p=abs(c2(1,1));
         r=abs(c3(1,1));
         mrx=max([p,r]);
 
-        //finding the max y coordinate of rectangle
+        %%finding the max y coordinate of rectangle
         q=abs(c1(1,2));
         s=abs(c2(1,2));
         mry=max([q,s]);
         
-        //finding max x coordinate of triangle            
+        %%finding max x coordinate of triangle            
         u=abs(t1(1,1));
         v=abs(t2(1,1));
         w=abs(t3(1,1));
         mtx=max([u,v,w]);
         
-        //finding max y coordinate of triangle
+        %%finding max y coordinate of triangle
         u=abs(t1(1,2));
         v=abs(t2(1,2));
         w=abs(t3(1,2));
         mty=max([u,v,w]);
 
         if(mrx>mtx && mry>mty)
-            flag+=1;        
+            flag=flag+1;  
+        end
+        else
+            disp("invalid input:slot not inside the figure");
+    end
 
 
 if(flag==1)
-    //finding centroid of rectangle
+    %%finding centroid of rectangle
     m1=(c1+c2)/2 ;
     m2= (c3+c4)/2 ;
     cr = (m1+m2)/2;
 
-    //finding centroid of triangle
+    %%finding centroid of triangle
     m12= (t1+t2)/2;
     m23 = (t2+t3)/2;
     m31= (t1+t3)/2;
-    v1= t23-t1;
-    v2= t31-t2;
+    v1= m23-t1;
+    v2= m31-t2;
     ct = intersect(v1,v2);
      
-    //centroid of figure
-    centroid= ((cr*Rarea-ct*Tarea)/(Rarea-Tarea));
-    
+    %%centroid of figure
+    centroid= ((cr*Rarea-ct*Tarea)/(Rarea-Tarea))
+end
