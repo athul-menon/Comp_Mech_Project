@@ -72,6 +72,6 @@ dcx=[centroidCir;Rcen];
 dcx = pdist(dcx,'euclidean')
 
 MIX=Ixx-ICir+(A*dcx^2)-(areaCir*dcx^2)
-MIY=Iyy-iCir+(A*dcx^2)-(areaCir*dcx^2)
+MIY=Iyy-ICir+(A*dcx^2)-(areaCir*dcx^2)
 
 
