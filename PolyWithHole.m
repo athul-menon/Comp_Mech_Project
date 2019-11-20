@@ -64,11 +64,12 @@ Iyy = (Ivv + A*x_cen*x_cen)*(-1);
 %For the circular hole
 
 r=input("Enter the radius of the hole:");
+areaCir= (pi*((r)^2))
 cx=input("Enter the x coordinate of the center of hole:");
 cy=input("Enter the y coordinate of the center of hole:");
 centroidCir = [cx cy];
 Icir=(5*pi*(r^4))/4;
-Ac = (pi*r*r);
+
  
 
  
@@ -86,7 +87,7 @@ for s=1:N
     end
 end
 
- 
+ E = A-Ac;
 
 if(t == N)
     Cex = ((A*x_cen-Ac*cx)/A-Ac);
@@ -97,12 +98,16 @@ if(t == N)
     dry = (Cey - y_cen);
     MIX=Iuu-Icir+(A*drx*drx)-(areaCir*dcx*dcx);
     MIY=Ivv-Icir+(A*dry*dry)-(areaCir*dcy*dcy);
+    Ixx = MIX+ E*(Cex*Cex);
+    Iyy = MIY+ E*(Cey*Cey);
  
 % return values
 
    disp("Centroid point:");
-   Centroid = [x_cen  y_cen]
+   Centroid = [Cex  Cey]
    disp("Moment of inertia on Centroidal Axis:");
    Ic = [MIX MIY]
+   disp("Moment of inertia along X-axis and Y-axis:");
+   I = [ Ixx  Iyy]
  
 end
