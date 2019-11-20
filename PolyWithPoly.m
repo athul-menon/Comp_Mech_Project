@@ -106,8 +106,8 @@ Ipy = (Iqv + B*p_cen*p_cen)*-1;
 
 %To Find Centroid of the figure
 if(flag==1)
-	cx=((A*x_cen)-(B*p_cen))/(A-B);
-	cy=((A*y_cen)-(B*q_cen))/(A-B);	
+	cx=((A*x_cen)-(B*p_cen))/(A-B)
+	cy=((A*y_cen)-(B*q_cen))/(A-B)
 end
 %To Find Moment of the figure  
 if(flag==1)
@@ -115,6 +115,6 @@ if(flag==1)
 	dy=cy-y_cen;
 	dsx=cx-p_cen;
 	dsy=cy-q_cen;	
-    Icx =(Iuu-Ipu)+(A*dx*dx)-(B*dsx*dsx);
-	Icy =(Ivv-Iqv)+(A*dy*dy)-(B*dsy*dsy);
+    Icx =(Iuu-Ipu)+(A*dx*dx)-(B*dsx*dsx)
+	Icy =(Ivv-Iqv)+(A*dy*dy)-(B*dsy*dsy)
 end
