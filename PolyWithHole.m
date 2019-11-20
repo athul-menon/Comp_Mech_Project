@@ -1,3 +1,4 @@
+
 n = "Enter the number of sides:";
 N = input(n);
 F= zeros(1,N);
@@ -63,12 +64,11 @@ Iyy = (Ivv + A*x_cen*x_cen)*(-1);
 %For the circular hole
 
 r=input("Enter the radius of the hole:");
-areaCir= (pi*((r)^2))
 cx=input("Enter the x coordinate of the center of hole:");
 cy=input("Enter the y coordinate of the center of hole:");
 centroidCir = [cx cy];
 Icir=(5*pi*(r^4))/4;
-
+Ac = (pi*r*r);
  
 
  
@@ -106,4 +106,3 @@ if(t == N)
    Ic = [MIX MIY]
  
 end
-
