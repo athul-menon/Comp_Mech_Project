@@ -12,8 +12,6 @@ for s=1:N
    y(1,s)= c;
 end
 
-fmx=max(x);
-fmy=max(y);  
 
 % check if inputs are same size
 if ~isequal( size(x), size(y) )
@@ -51,6 +49,8 @@ Iyy = Ivv + A*x_cen*x_cen;
 n = "Enter the number of sides for slot:";
 N = input(n);
 A= zeros(1,N);
+p=zeros(1,N);
+q=zeros(1,N);
 x=A;
 y=A;
 for s=1:N
@@ -62,22 +62,22 @@ for s=1:N
    q(1,s)= c;
 end   
 
-smx=max(p);
-smy=max(q);
+
 % check if inputs are same size
 if ~isequal( size(p), size(q) )
-  error( 'X and Y must be the same size');
+  error( 'P and Q must be the same size');
 end
 
-flag=0;
-
+flag=1;
 % TO CHECK IF SLOT IS INSIDE:
-if(fmx>smx && fmy>smy)
-	flag=flag+1;
-else
-	disp("invalid");
-end
- 
+    for s=1:N
+        in=inpoly(p(1,s),q(1,s),x,y);
+        if(in==0)
+            flag=2;
+            disp("slot outside fiigure");
+            break;
+        end
+    end
 % temporarily shift data to mean of vertices for improved accuracy
 pm = mean(x);
 qm = mean(y);
@@ -93,7 +93,7 @@ B = sum( b ) /2;
 pc = sum( (p+pp).*b  ) /6/B;
 qc = sum( (q+qp).*b  ) /6/B;
 Ipx = sum( (q.*q +q.*qp + qp.*qp).*b  ) /12;
-Ipy = sum( (p.*p +p.*pp + pp.*pp).*b  ) /12;
+Iqy = sum( (p.*p +p.*pp + pp.*pp).*b  ) /12;
  
 % centroidal moments
 Ipu = Ipx - B*qc*qc;
@@ -115,13 +115,11 @@ if(flag==1)
 	dx=cx-x_cen;
 	dy=cy-y_cen;
 	dsx=cx-p_cen;
-	dsy=cy-q_cen;
-	Icx =(Iuu-Ipu)-(A*dx*dx)-(B*dsx*dsx);
+	dsy=cy-q_cen;	Icx =(Iuu-Ipu)-(A*dx*dx)-(B*dsx*dsx);
 	Icy =(Ivv-Iqv)-(A*dy*dy)-(B*dsy*dsy);
-
+end
 % return values
 disp("Centroid point:");
 Centroid =[cx cy]
 disp("Moment of enertia on Centroidal Axis:");
 Ic = [Icx Icy]
-
