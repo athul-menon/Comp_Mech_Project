@@ -71,8 +71,8 @@ end
 flag=1;
 % TO CHECK IF SLOT IS INSIDE:
     for s=1:N
-        in=inpoly(p(1,s),q(1,s),x,y);
-        if(in==0)
+        in=inpolygon(p(1,s),q(1,s),x,y);
+        if(~in)
             flag=2;
             disp("slot outside fiigure");
             break;
