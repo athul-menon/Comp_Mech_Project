@@ -106,15 +106,26 @@ Ipy = (Iqv + B*p_cen*p_cen)*-1;
 
 %To Find Centroid of the figure
 if(flag==1)
-	cx=((A*x_cen)-(B*p_cen))/(A-B)
-	cy=((A*y_cen)-(B*q_cen))/(A-B)
+    disp("centroid of the figure : ");
+	cx=((A*x_cen)-(B*p_cen))/(A-B);
+	cy=((A*y_cen)-(B*q_cen))/(A-B);
+    C=[cx cy]
 end
+E=A-B;
+
 %To Find Moment of the figure  
 if(flag==1)
 	dx=cx-x_cen;
 	dy=cy-y_cen;
 	dsx=cx-p_cen;
 	dsy=cy-q_cen;	
-    Icx =(Iuu-Ipu)+(A*dx*dx)-(B*dsx*dsx)
-	Icy =(Ivv-Iqv)+(A*dy*dy)-(B*dsy*dsy)
+    Icx =(Iuu-Ipu)+(A*dx*dx)-(B*dsx*dsx);
+	Icy =(Ivv-Iqv)+(A*dy*dy)-(B*dsy*dsy);
+    Ixx=Icx + E*cy*cy;
+    Iyy=Icy + E*cx*cx;
+    disp("Moment of inertia along centroidal axis : ");
+    Ic=[Icx Icy]
+    disp("Moment of inertia along X and Y axis : ");
+    I=[Ixx Iyy]
+    
 end
