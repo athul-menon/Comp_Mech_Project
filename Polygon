@@ -51,6 +51,6 @@ disp("Centroid point:");
 Centroid = [x_cen  y_cen]
 disp("Moment of Inertia on X axis and  Y axis:");
 I = [Ixx Iyy]
-disp("Moment of enertia on Centroidal Axis:");
+disp("Moment of inertia on Centroidal Axis:");
 Ic = [Iuu Ivv]
 
